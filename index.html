@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>לוח משימות שבועי</title>
+
+  <!-- OneSignal -->
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(async function(OneSignal) {
+      await OneSignal.init({
+        appId: "4e324ecc-091a-446b-ad74-d27e6218c8b9",
+        promptOptions: {
+          /* בקשה להרשאות מיידית */
+          slidedown: { enabled: true },
+        }
+      });
+    });
+  </script>
+
+  <!-- קובץ CSS -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#4CAF50">
+</head>
+<body>
+  <h1>לוח משימות שבועי</h1>
+
+  <div id="calendar-container"></div>
+
+  <template id="task-template">
+    <div class="task">
+      <span class="task-text"></span>
+      <input type="time" class="task-time">
+      <label>
+        התראה <input type="checkbox" class="task-notify">
+      </label>
+      <button class="edit-task">עריכה</button>
+      <button class="delete-task">מחק</button>
+    </div>
+  </template>
+
+  <button id="prev-week">שבוע קודם</button>
+  <button id="next-week">שבוע הבא</button>
+
+  <script src="main.js"></script>
+</body>
+</html>
